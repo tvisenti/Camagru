@@ -4,11 +4,11 @@
 
 <header>
 	<div id="header">
-		<img id="logo" src="http://img15.hostingpics.net/pics/660371kwamashoplogo2.png" width="50%" height="auto">
+		<img id="logo" src="https://img11.hostingpics.net/thumbs/mini_907215text2imageT7649520170911131234.png" width="50%" height="auto">
 		<div id="login">
 			<form action="session.php" method="POST">
-				<input type="submit" name="LOGOUT" value="LOGOUT">
-				<input type="submit" name="DELETE_ACCOUNT" value="DELETE_ACCOUNT">
+				<input type="submit" name="Logout" value="Logout">
+				<input type="submit" name="Delete" value="Delete">
 			</form>
 				<?php
 				session_start();

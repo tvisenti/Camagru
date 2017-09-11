@@ -4,7 +4,6 @@ if (!$_SESSION["log_user"])
 	header("location: index.html");
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +23,7 @@ if (!$_SESSION["log_user"])
             </div>
             <footer>
             <div id="footer">
-                <p>&copy;tvisenti</p>
+                <p>&copy; tvisenti</p>
             </div>
         </footer>
         </div>

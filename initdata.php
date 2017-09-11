@@ -2,7 +2,7 @@
 
 session_start();
 
-function	initdata($user)
+function	initdata($user, $email)
 {
 	$tab = array();
 	if (file_exists("./private/user"))
@@ -12,7 +12,7 @@ function	initdata($user)
 		$contents = file_get_contents("./private/user");
 		$tab = unserialize($contents);
 	}
-	array_push($tab, inituser($user));
+	array_push($tab, inituser($user, $email));
 	$data = serialize($tab);
 	file_put_contents("./private/user", $data);
 	if ($fp)
@@ -22,16 +22,16 @@ function	initdata($user)
 	}
 }
 
-function	inituser($user)
+function	inituser($user, $email)
 {
-	$data = array("id" => $user, "userlvl" => 1);
+	$data = array("id" => $user, "email" => $email, "userlvl" => 1);
 	return $data;
 }
 
-function	add($name, $category)
+function	add($name, $category, $email)
 {
 	$category = explode(",", $category);
-	$data = array("name" => $name);
+	$data = array("name" => $name, "email" => $email);
 	return $data;
 }
 
