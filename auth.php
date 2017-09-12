@@ -15,9 +15,9 @@ function	auth($login, $passwd)
 			}
 		}
 		if ($x == 0)
-			return FALSE;
+		return FALSE;
 	}
 	else
-		return FALSE;
+	return FALSE;
 }
 ?>

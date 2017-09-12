@@ -44,7 +44,7 @@ function	getall($file, $user ,$info)
 	while ($tab[$x])
 	{
 		if ($tab[$x]["id"] == $user)
-			$tab1 = $tab[$x][$info];
+		$tab1 = $tab[$x][$info];
 		$x++;
 	}
 	file_put_contents("./private/".$file, serialize($tab));
@@ -62,7 +62,7 @@ function	getdata($file, $user ,$info)
 	while ($tab[$x])
 	{
 		if ($tab[$x]["name"] == $user)
-			$tab1 = $tab[$x][$info];
+		$tab1 = $tab[$x][$info];
 		$x++;
 	}
 	file_put_contents("./private/".$file, serialize($tab));
@@ -78,7 +78,7 @@ function	getelem($file, $elem)
 	while ($tab[$x])
 	{
 		if ($tab[$x]["id"] == $elem)
-			$tab1 = $tab[$x][$info];
+		$tab1 = $tab[$x][$info];
 		$x++;
 		return $tab1;
 	}
@@ -105,7 +105,7 @@ function	delete_user($file, $user)
 	foreach ($tab as $key => $value)
 	{
 		if ($user == $key)
-			unset($tab[$key]);
+		unset($tab[$key]);
 	}
 	file_put_contents("./private/".$file, serialize($tab));
 	flock($fp, LOCK_UN);

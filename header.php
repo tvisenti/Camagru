@@ -1,5 +1,5 @@
 <?php
-	include 'initdata.php';
+include 'initdata.php';
 ?>
 
 <header>
@@ -10,17 +10,17 @@
 				<input type="submit" name="Logout" value="Logout">
 				<input type="submit" name="Delete" value="Delete">
 			</form>
-				<?php
-				session_start();
-				if ($_SESSION["user_lvl"] == 2)
-				{
+			<?php
+			session_start();
+			if ($_SESSION["user_lvl"] == 2)
+			{
 				?>
 				<form action="admin.php" method="POST">
 					<input type="submit" name="ADMIN" value="ADMIN">
 				</form>
 				<?php
-				}
-				?>
+			}
+			?>
 		</div>
-</div>
+	</div>
 </header>

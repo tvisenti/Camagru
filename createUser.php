@@ -5,7 +5,7 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 	if ($_POST["submit"] === "OK")
 	{
 		if (!file_exists("./private"))
-			mkdir("./private");
+		mkdir("./private");
 		$x = 0;
 		if (file_exists("./private/passwd"))
 		{
@@ -16,7 +16,7 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 			foreach ($tab as $key => $value)
 			{
 				if ($_POST["login"] == $key)
-					$x = 1;
+				$x = 1;
 			}
 		}
 		if ($x == 0)
@@ -28,13 +28,21 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 			$message = "Bonjour " . $_POST["login"] . ",\rMerci de cliquer sur le lien afin de confirmer votre inscription sur Camagru.\r\n";
 			$subject = "Confirmation du compte de " . $_POST["login"];
 			mail($_POST["email"], $subject, $message);
-			header("location: index.html");
-			echo "OK"."\n";
+			?>
+			<script language="javascript">
+			alert("Please check your mails for validation.");
+			document.location.href = '/camagru/index.html';
+			</script>
+			<?php
 		}
 		else
 		{
-			header("location: createUser.html");
-			echo "ERROR"."\n";
+			?>
+			<script language="javascript">
+			alert("Error: Username is aleready exists.");
+			document.location.href = '/camagru/createUser.html';
+			</script>
+			<?php
 		}
 		if ($fp)
 		{
@@ -45,7 +53,11 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 }
 else
 {
-	header("location: createUser.html");
-	echo "ERROR"."\n";
+	?>
+	<script language="javascript">
+	alert("Error: One field is empty.");
+	document.location.href = '/camagru/createUser.html';
+	</script>
+	<?php
 }
 ?>

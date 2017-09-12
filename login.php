@@ -8,7 +8,7 @@ if ($_POST["username"] && $_POST["password"])
 	{
 		$_SESSION["log_user"] = $_POST["username"];
 		$_SESSION["user_lvl"] = getall("user", $_POST["username"], "userlvl");
-		header("location: index.php");
+		header("location: frontPage.php");
 	}
 	else
 	{

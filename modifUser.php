@@ -17,28 +17,44 @@ if ($_POST["login"] && $_POST["oldpw"] && $_POST["submit"] && $_POST["newpw"])
 				$tab[$_POST["login"]] = hash("haval224,3", $_POST["newpw"]);
 				$data = serialize($tab);
 				file_put_contents("./private/passwd", $data);
-				header("location: index.html");
-				echo "OK"."\n";
 				$x = 1;
+				?>
+				<script language="javascript">
+				alert("Valid: New password is valid.");
+				document.location.href = '/camagru/index.html';
+				</script>
+				<?php
 			}
 		}
 		if ($x == 0)
 		{
-			header("location: modifUser.html");
-			echo "ERROR"."\n";
+			?>
+			<script language="javascript">
+			alert("Error: One field is wrong.");
+			document.location.href = '/camagru/modifUser.html';
+			</script>
+			<?php
 		}
 		flock($fp, LOCK_UN);
 		fclose($fp);
 	}
 	else
 	{
-		header("location: modifUser.html");
-		echo "ERROR"."\n";
+		?>
+		<script language="javascript">
+		alert("Error: An error occured.");
+		document.location.href = '/camagru/modifUser.html';
+		</script>
+		<?php
 	}
 }
 else
 {
-	header("location: modifUser.html");
-	echo "ERROR"."\n";
+	?>
+	<script language="javascript">
+	alert("Error: One field is empty.");
+	document.location.href = '/camagru/modifUser.html';
+	</script>
+	<?php
 }
 ?>
