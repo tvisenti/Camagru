@@ -2,12 +2,12 @@
 session_start();
 include 'auth.php';
 include 'initdata.php';
-if ($_POST["username"] && $_POST["password"])
+if ($_POST["login"] && $_POST["password"])
 {
-	if (auth($_POST["username"], $_POST["password"]) === TRUE)
+	if (auth($_POST["login"], $_POST["password"]) === TRUE)
 	{
-		$_SESSION["log_user"] = $_POST["username"];
-		$_SESSION["user_lvl"] = getall("user", $_POST["username"], "userlvl");
+		$_SESSION["log_user"] = $_POST["login"];
+		$_SESSION["user_lvl"] = getall("user", $_POST["login"], "userlvl");
 		header("location: frontPage.php");
 	}
 	else

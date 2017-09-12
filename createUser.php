@@ -4,6 +4,27 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 {
 	if ($_POST["submit"] === "OK")
 	{
+		if (preg_match("#^([\w])+$#", html_entity_decode($_POST["login"])) != 1)
+		{
+			?>
+			<script language="javascript">
+			alert("Error: Wrong format username.");
+			document.location.href = '/camagru/createUser.html';
+			</script>
+			<?php
+			exit();
+		}
+		if (preg_match("#^([\w.])+@(([\w]+).([\w])+)+$#", html_entity_decode($_POST["email"])) != 1)
+		{
+			?>
+			<script language="javascript">
+			alert("Error: Wrong format email.");
+			document.location.href = '/camagru/createUser.html';
+			</script>
+			<?php
+			exit();
+		}
+
 		if (!file_exists("./private"))
 		mkdir("./private");
 		$x = 0;
@@ -34,15 +55,17 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 			document.location.href = '/camagru/index.html';
 			</script>
 			<?php
+			exit();
 		}
 		else
 		{
 			?>
 			<script language="javascript">
-			alert("Error: Username is aleready exists.");
+			alert("Error: Username/Email is aleready exists.");
 			document.location.href = '/camagru/createUser.html';
 			</script>
 			<?php
+			exit();
 		}
 		if ($fp)
 		{
@@ -59,5 +82,6 @@ else
 	document.location.href = '/camagru/createUser.html';
 	</script>
 	<?php
+	exit();
 }
 ?>

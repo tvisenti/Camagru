@@ -2,7 +2,7 @@
 
 session_start();
 
-function	initdata($user, $email)
+function	initdata($login, $email)
 {
 	$tab = array();
 	if (file_exists("./private/user"))
@@ -12,7 +12,7 @@ function	initdata($user, $email)
 		$contents = file_get_contents("./private/user");
 		$tab = unserialize($contents);
 	}
-	array_push($tab, inituser($user, $email));
+	array_push($tab, inituser($login, $email));
 	$data = serialize($tab);
 	file_put_contents("./private/user", $data);
 	if ($fp)
@@ -22,9 +22,9 @@ function	initdata($user, $email)
 	}
 }
 
-function	inituser($user, $email)
+function	inituser($login, $email)
 {
-	$data = array("id" => $user, "email" => $email, "userlvl" => 1);
+	$data = array("login" => $login, "email" => $email, "isAdmin" => 0 , "validAccount" => 0);
 	return $data;
 }
 
@@ -43,7 +43,7 @@ function	getall($file, $user ,$info)
 	$tab = unserialize(file_get_contents("./private/"."$file"));
 	while ($tab[$x])
 	{
-		if ($tab[$x]["id"] == $user)
+		if ($tab[$x]["login"] == $user)
 		$tab1 = $tab[$x][$info];
 		$x++;
 	}
