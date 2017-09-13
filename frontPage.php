@@ -24,11 +24,10 @@ header("location: index.html");
             </div>
             <div id="camera">
             </div>
-            <button id="take_snapshots" class="btn btn-success btn-sm">Take Snapshots
-            </button>
-            <form>
+            <button id="take_snapshots" class="btn btn-success btn-sm">Take Snapshots</button>
+            <!-- <form>
                 <input type="button" value="Take Snapshot" onClick="take_snapshot()">
-            </form>
+            </form> -->
         </div>
         <footer>
             <div id="footer">

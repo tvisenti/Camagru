@@ -25,6 +25,20 @@ if ($_POST["login"] && $_POST["email"] && $_POST["passwd"] && $_POST["submit"])
 			exit();
 		}
 
+		// /* Connect to a MySQL database using driver invocation */
+		// $dsn = 'mysql:dbname=testdb;host=127.0.0.1';
+		// $user = 'dbuser';
+		// $password = 'dbpass';
+		//
+		// try {
+		//     $pdo = new PDO($dsn, $user, $password);
+		// 	$pdo->query("SET NAMES 'utf8'");
+		// 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		// } catch (PDOException $e) {
+		//     echo 'Connection failed: ' . $e->getMessage();
+		// }
+
+
 		if (!file_exists("./private"))
 		mkdir("./private");
 		$x = 0;
